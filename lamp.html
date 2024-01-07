@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="lamp.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="box">
+        <div class="wire"></div>
+        <div class="bulb-head">
+        </div>
+        <div id="bulb"></div>
+        <H1 id="msg">BIJLI KA BILL TERA BAP VAREGA</H1>
+        <audio id="audio">
+            <source src="bijlee_ka_bill.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="myfunc()">
+        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+    </div>
+    <script>
+        let myfunc = () => {
+            let swt = document.getElementById('flexSwitchCheckDefault');
+            let bulb = document.getElementById('bulb');
+            let audio = document.getElementById('audio');
+            let msg= document.getElementById('msg');
+            if (swt.checked) { 
+                setTimeout(()=>{
+                    audio.play()
+                },0);
+                bulb.style.backgroundImage = 'radial-gradient(rgb(255, 255, 255) 40%,rgb(145, 145, 145) 20%, rgb(255, 255, 255) 30%)';
+                bulb.style.boxShadow = '0px 0px 50px 9px rgba(255, 255, 255, 0.918)';
+                msg.style.visibility='visible';
+            }
+            setTimeout(()=>{
+                bulb.style.backgroundImage = 'radial-gradient(rgb(0, 0, 0),rgb(18, 0, 26))';
+                bulb.style.boxShadow = '0px 0px 10px 1px rgba(255, 255, 255, 0.918)';
+                msg.style.visibility='hidden';
+                swt.checked=false;
+            },1500)
+            
+
+
+        }
+    </script>
+</body>
+
+</html>
